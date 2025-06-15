@@ -1,0 +1,74 @@
+//-------------------------------------------------------------
+// Nom du PNJ : Le Maître des Illusions
+// Fichier : maitre_des_illusions.txt (ou le nom que tu lui donnes)
+// Description : Propose de gérer la visibilité des effets de compétences.
+//-------------------------------------------------------------
+
+// Définition du PNJ et de sa position
+prontera,150,180,4	script	Maître des Illusions#NOFX	123,{ 
+
+	mes "Bonjour, voyageur. Je peux vous aider à rendre votre aventure moins... éblouissante. Que souhaitez-vous gérer ?";
+	
+	// Menu principal pour la gestion des effets de compétences
+	switch(select("Gérer Storm Gust:Gérer Lord of Vermillion:Gérer Meteor Storm:Rien pour le moment")){
+		case 1: // Gérer Storm Gust
+			mes "Souhaitez-vous masquer ou réactiver l'effet de Storm Gust ?";
+			switch(select("Masquer (OFF):Réactiver (ON):Annuler")){
+				case 1: // Masquer
+					atcommand "@nofx 89 on"; 
+					mes "L'effet de Storm Gust est maintenant masqué pour vous.";
+					break;
+				case 2: // Réactiver
+					atcommand "@nofx 89 off"; 
+					mes "L'effet de Storm Gust est maintenant visible pour vous.";
+					break;
+				case 3: // Annuler
+					mes "D'accord, rien n'a été modifié pour Storm Gust.";
+					break;
+			}
+			close; 
+			break;
+			
+		case 2: // Gérer Lord of Vermillion
+			mes "Souhaitez-vous masquer ou réactiver l'effet de Lord of Vermillion ?";
+			switch(select("Masquer (OFF):Réactiver (ON):Annuler")){
+				case 1: // Masquer
+					atcommand "@nofx 85 on"; 
+					mes "L'effet de Lord of Vermillion est maintenant masqué pour vous.";
+					break;
+				case 2: // Réactiver
+					atcommand "@nofx 85 off"; 
+					mes "L'effet de Lord of Vermillion est maintenant visible pour vous.";
+					break;
+				case 3: // Annuler
+					mes "D'accord, rien n'a été modifié pour Lord of Vermillion.";
+					break;
+			}
+			close;
+			break;
+			
+		case 3: // Gérer Meteor Storm
+			mes "Souhaitez-vous masquer ou réactiver l'effet de Meteor Storm ?";
+			switch(select("Masquer (OFF):Réactiver (ON):Annuler")){
+				case 1: // Masquer
+					atcommand "@nofx 83 on"; 
+					mes "L'effet de Meteor Storm est maintenant masqué pour vous.";
+					break;
+				case 2: // Réactiver
+					atcommand "@nofx 83 off"; 
+					mes "L'effet de Meteor Storm est maintenant visible pour vous.";
+					break;
+				case 3: // Annuler
+					mes "D'accord, rien n'a été modifié pour Meteor Storm.";
+					break;
+			}
+			close;
+			break;
+			
+		case 4: // Rien pour le moment
+			mes "Très bien. Revenez quand vous le souhaitez !";
+			close; // Ferme la fenêtre de dialogue
+			break;
+	}
+	end; 
+}
